@@ -85,6 +85,7 @@
 			body("true")
 			status 200
 		}
-	}```
+	}
+	```
 	
 5. 	**Running `./mvnw clean install` automatically generates tests that verify the application compliance with the added contracts**
