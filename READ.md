@@ -16,16 +16,17 @@
 
 1. **Add below dependency to pom.xml**
 
-	`
+	```
 	<dependency>
 		<groupId>org.springframework.cloud</groupId>
 		<artifactId>spring-cloud-starter-contract-verifier</artifactId>
 		<scope>test</scope>
-	</dependency>`
+	</dependency>
+	```
 	
 2. **Create BaseTestClass in test directory. A sample is given below**
 
-	`
+	```
 	@DirtiesContext
 	@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 	@AutoConfigureMessageVerifier
@@ -40,11 +41,12 @@
 					= MockMvcBuilders.standaloneSetup(controller);
 			RestAssuredMockMvc.standaloneSetup(standaloneMockMvcBuilder);
 		}
-	}`
+	}
+	```
 
 3. **Add below plug-ins to pom.xml. It helps in generating contract test cases during compilation.**
 
-	`
+	```
 	<build>
 		<plugins>
 			<plugin>
@@ -62,11 +64,11 @@
 			</plugin>
 		</plugins>
 	</build>
-	`
+	```
 	
 4.	**Add contract defination in groovy or YAML. A sample is given below**
 
-	`
+	```
 	import org.springframework.cloud.contract.spec.Contract
 
 	Contract.make {
@@ -83,6 +85,6 @@
 			body("true")
 			status 200
 		}
-	}`
+	}```
 	
-5. 	**Running ./mvnw clean install automatically generates tests that verify the application compliance with the added contracts**
+5. 	**Running `./mvnw clean install` automatically generates tests that verify the application compliance with the added contracts**
